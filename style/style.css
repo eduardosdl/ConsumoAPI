@@ -1,0 +1,24 @@
+.container{
+    padding: 0;
+    max-width: 900px;
+    border: 1px solid red;
+}
+
+#hourly{
+    border: 1px solid red;
+    width: 70%;
+    overflow-x: auto;
+}
+
+#search {
+    width: 500px
+}
+
+#imgHour {
+    height: 70px;
+    width: 70px;
+}
+
+section, div {
+    border: 1px solid red;
+}
