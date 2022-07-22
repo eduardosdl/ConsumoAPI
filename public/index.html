@@ -4,73 +4,189 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- CSS -->
     <link rel="stylesheet" href="../style/style.css">
     <title>Consumo API</title>
 </head>
 <body class="">
 
-    <div class="container ">
+    <div id="container" class="container rounded">
+        <!-- <header>
+            <img src="../img/weather-app.png" alt="logo weather-app">
+            <h1>weather app</h1>
+        </header> -->
 
-        <section class="d-flex align-items-center justify-content-center">
-            <h3 class="">Recife, BR</h3>
+        <section class="d-flex align-items-center justify-content-center py-3">
+            <h3 class="me-4 fs-3">Recife, BR</h3>
             <input id="search" class="form-control mx-2" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-            
+            <button class="btn btn-success" type="submit">Search</button>
         </section>
-        <section id="today" class="d-flex align-items-center justify-content-between">
-            <div id="current">
-                <p>Thu Jul 21 2022 13:37:03</p>
-                <h2>25&deg;C</h2>
-                <img src="../img/04d.png" alt="ilustração do clima">
-                <p>23</p>
-                <p>25</p>
+        <section id="today" class="d-flex align-items-center justify-content-around text-center">
+            <div id="current d-flex flex-column">
+                <p class="m-0 fs-4">Thu Jul 21 2022</p>
+                <p class="m-0 fs-5">13:37:03</p>
+                <div class="d-flex">
+                    <div class="d-flex flex-column">
+                        <h2 class="m-0 fs-3">25&deg;C</h2>
+                        <img class="" src="../img/04d.png" alt="ilustração do clima">
+                    </div>
+                    <div id="minMax" class="d-flex justify-content-center flex-column p-3 ms-2">
+                        <p class="fs-5">23&deg;C</p>
+                        <p class="fs-5">25&deg;C</p>
+                    </div>
+                </div>
+                <p>Nublado</p>
             </div>
             <div id="hourly" class="">
+                <p class="fs-5">Próximas horas:</p>
                 <ul id="previousHour" class="d-flex list-unstyled">
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
+                    <li id="hourly1" class=" mx-2 rounded d-flex align-items-center flex-column px-2">
+                        <h5 class="fs-5">13:00</h5>
                         <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
+                        <h5 class="fs-5">25&deg;C</h5>
                     </li>
-                    <li class="border mx-2 rounded bg-dark bg-opacity-50 d-flex align-items-center flex-column px-2">
-                        <h5 class="">13:00</h5>
-                        <img id="imgHour" src="../img/04d.png" alt="ilustração do clima" class="">
-                        <h5 class="">25.01&deg;C</h5>
-                    </li>
-                    
-
-                   
                 </ul>
             </div>
         </section>
-        <section id="previous">
+        <section id="previous" class="mx-5 pb-3">
+            <div id="daily" class="text-center">
+                <p class="fs-5">Próximos dias:</p>
+                <ul id="previousDaily" class="d-flex list-unstyled pb-2">
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" mx-2 rounded d-flex align-items-center flex-column px-0">
+                        <h5 class="">Jul 21</h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column">
+                                <h2 class="m-0 fs-5">25&deg;C</h2>
+                                <img class="" src="../img/04d.png" alt="ilustração do clima">
+                            </div>
+                            <div id="minMax" class="d-flex justify-content-center flex-column p-2 ms-2">
+                                <p class="fs-6">23&deg;C</p>
+                                <p class="fs-6">25&deg;C</p>
+                            </div>
+                        </div>
+                    </li>
 
+
+                </ul>
+            </div>
         </section>
         
     </div>

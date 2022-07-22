@@ -1,17 +1,31 @@
-.container{
+body {
+    background: linear-gradient( rgb(87, 244, 255) 20%, rgba(102,166,240,1) 80%);
+    height: 100vh;
+
+}
+
+/* h3, #search {
+    border: 1px solid red;
+
+} */
+
+#container{
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 0;
     max-width: 900px;
-    border: 1px solid red;
 }
 
 #hourly{
-    border: 1px solid red;
+    min-width: 350px;
+    max-width: 900px;
     width: 70%;
     overflow-x: auto;
 }
 
 #search {
-    width: 500px
+    min-width: 200px;
+    max-width: 500px;
+    width: 70%;
 }
 
 #imgHour {
@@ -19,6 +33,27 @@
     width: 70px;
 }
 
-section, div {
-    border: 1px solid red;
+#minMax {
+    border-left: 2px solid rgba(0, 0, 0, 0.4);
+    height: 110px;
 }
+
+ul li {
+    background-color: rgba(255, 255, 255,0.5);
+}
+
+#previous {
+    border-top: 3px solid #ffffff;
+    
+}
+
+#previousDaily {
+    min-width: 350px;
+    max-width: 900px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* section, div {
+    border: 1px solid red;
+} */
