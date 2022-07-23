@@ -1,28 +1,56 @@
-const teste = async function() {
-    const city = 'Recife'
-    const URLCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=8f77d0065bcd16d453b9e3093004900c#`;
-    const cidade = await fetch(URLCity);
-    const dataCity = await cidade.json();
-    console.log(dataCity)
-    const latCity = dataCity[0].lat
-    const lonCity = dataCity[0].lon
+const button = document.querySelector("#btn");
+const input = document.querySelector("#search");
 
-    const URLClima = `https://api.openweathermap.org/data/2.5/onecall?lat=${latCity}&lon=${lonCity}&exclude=minutely&units=metric&lang=pt_br&appid=8f77d0065bcd16d453b9e3093004900c#`;
-
-    const clima = await fetch(URLClima)
-    const dataClima = await clima.json();
+// evento para identificar o click
+button.addEventListener('click', getCity);
+// evento para identificar o 'enter'
+input.addEventListener('keypress', (ev) => {
+    if(ev.key == 'Enter') {
+        getCity();
+    }
+});
 
 
+function getCity () {
+    const city = input.value
+    const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=8f77d0065bcd16d453b9e3093004900c#`;
 
-    console.log(dataClima);
+    if (!input.value) {
+        input.classList.add('danger');
+    } else {
+        input.classList.remove('danger');
+        fetch(urlCity).then(res => res.json()).then((dataCity) => {
+            document.querySelector('#cityName').innerHTML = `${dataCity[0].name}, ${dataCity[0].country}`
+            getClimate(dataCity[0].lat, dataCity[0].lon);
+        }).catch(err => alert("Houve um erro, tente novamente"));
 
-
-    let dataUnix = dataClima.current.dt
-    let data = new Date(dataUnix*1000);
-    console.log(data)
-
-    
-
+        input.value = ""
+    }
 }
 
-teste();
+function getClimate(lat, lon) {
+    const urlClimate = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&lang=pt_br&appid=8f77d0065bcd16d453b9e3093004900c#`;
+
+    fetch(urlClimate).then(res => res.json()).then((dataClimate) => {
+        console.log(dataClimate);
+        climateCurrent(dataClimate);
+        climateHour(dataClimate);
+
+    }).catch(err => alert("Houve um erro, tente novamente"));
+}
+
+function climateCurrent (data) {
+    const date = new Date(data.current.dt*1000)
+    const dateFormted = (new Intl.DateTimeFormat('pt-BR').format(date));
+    const hour = `${date.getHours()}:${date.getMinutes()}`;
+
+    document.querySelector('#dateCurrent').innerHTML = dateFormted;
+    document.querySelector('#hourCurrent').innerHTML = hour;
+
+    document.querySelector('#tempCurrent').innerHTML = `${data.current.temp.toFixed(1)}&deg;C`;
+    document.querySelector('#tempCurrent').setAttribute('src',`../img/${data.current.weather[0].icon}.png`);
+    document.querySelector('#descCurrent').innerHTML = data.current.weather[0].description;
+    
+    document.querySelector('#maxCurrent').innerHTML = `${data.daily[0].temp.max.toFixed(1)}&deg;C`;
+    document.querySelector('#minCurrent').innerHTML = `${data.daily[0].temp.min.toFixed(1)}&deg;C`;
+}
