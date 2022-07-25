@@ -1,6 +1,9 @@
 // selecionando elementos de busca
 const button = document.querySelector("#btn");
 const input = document.querySelector("#search");
+const listHour = document.querySelector('#previousHour');
+const listDay = document.querySelector('#previousDaily');
+
 
 // evento para identificar o click
 button.addEventListener('click', getCity);
@@ -13,6 +16,10 @@ input.addEventListener('keypress', (ev) => {
 
 // busca a latitude e longitade da cidade informada
 function getCity () {
+    // limpa as listas horaria e diaria de clima
+    listHour.innerHTML = "";
+    listDay.innerHTML = "";
+
     const city = input.value
     const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=8f77d0065bcd16d453b9e3093004900c#`;
 
@@ -67,7 +74,7 @@ function climateCurrent (data) {
 
 // atualiza a previsao por hora do local
 function climateHour (dataHourly) {
-    const list = document.querySelector('#previousHour');
+    // const list = document.querySelector('#previousHour');
 
     for (const hour of dataHourly) {
         const date = new Date(hour.dt*1000);
@@ -78,7 +85,7 @@ function climateHour (dataHourly) {
             temp: `${hour.temp.toFixed(1)}&deg;C`,
         });
 
-        list.append(cardHour);
+        listHour.append(cardHour);
     }
 }
 
@@ -106,9 +113,7 @@ function createCardHour (content) {
 
 // atualiza as previsoes diarias
 function climateDay (dataDaily) {
-    const mouths = ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
-    const list = document.querySelector('#previousDaily');
-    console.log(list);
+    const mouths = ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
     for (const day of dataDaily) {
         const date = new Date(day.dt*1000);
@@ -121,7 +126,7 @@ function climateDay (dataDaily) {
             desc: day.weather[0].description
         });
 
-        list.append(cardDay);
+        listDay.append(cardDay);
     }
 }
 
