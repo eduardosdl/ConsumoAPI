@@ -23,8 +23,7 @@ function getCity () {
             document.querySelector('#cityName').innerHTML = `${dataCity[0].name}, ${dataCity[0].country}`;
             getClimate(dataCity[0].lat, dataCity[0].lon);
         }).catch((err) => {
-            alert("Houve um erro, tente novamente");
-            console.log(err);
+            console.log("Houve um erro, tente novamente: "+err);
         });
 
         input.value = "";
@@ -38,17 +37,17 @@ function getClimate(lat, lon) {
         console.log(dataClimate);
         climateCurrent(dataClimate);
         climateHour(dataClimate.hourly);
+        climateDay(dataClimate.daily);
 
     }).catch((err) => {
-        alert("Houve um erro, tente novamente");
-        console.log(err);
+        console.log("Houve um erro, tente novamente: "+err);
     });
 }
 
 function climateCurrent (data) {
     const date = new Date(data.current.dt*1000);
-    const dateFormted = (new Intl.DateTimeFormat('pt-BR').format(date));
-    const hour = `${date.getHours()}:${date.getMinutes()}`;
+    const dateFormted = date.toLocaleDateString()
+    const hour = date.toLocaleTimeString().slice(0,5);
 
     document.querySelector('#dateCurrent').innerHTML = dateFormted;
     document.querySelector('#hourCurrent').innerHTML = hour;
@@ -61,24 +60,23 @@ function climateCurrent (data) {
     document.querySelector('#minCurrent').innerHTML = `${data.daily[0].temp.min.toFixed(1)}&deg;C`;
 }
 
-function climateHour (data) {
+function climateHour (dataHourly) {
     const list = document.querySelector('#previousHour');
 
-    for (const hour of data) {
+    for (const hour of dataHourly) {
         const date = new Date(hour.dt*1000);
 
-        const cardHour = createCard({
-            hour: `${date.getHours()}:${date.getMinutes().toLocaleString()}`,
+        const cardHour = createCardHour({
+            hour: date.toLocaleTimeString().slice(0,5),
             img: `../img/${hour.weather[0].icon}.png`,
             temp: `${hour.temp.toFixed(1)}&deg;C`,
         });
 
         list.append(cardHour);
-        
     }
 }
 
-function createCard(content) {
+function createCardHour (content) {
     const card = document.createElement('li');
     const hour = document.createElement('h5');
     const img = document.createElement('img');
@@ -97,4 +95,60 @@ function createCard(content) {
     card.append(temp);
 
     return card;
+}
+
+function climateDay (dataDaily) {
+    const mouths = ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+    const list = document.querySelector('#previousDaily');
+    console.log(list);
+
+    for (const day of dataDaily) {
+        const date = new Date(day.dt*1000);
+
+        const cardDay = createCardDay({
+            dateFormated: `${date.getDate()} ${mouths[date.getMonth()]}`,
+            img: `../img/${day.weather[0].icon}.png`,
+            min: `${day.temp.min.toFixed(1)}&deg;C`,
+            max: `${day.temp.max.toFixed(1)}&deg;C`,
+            desc: day.weather[0].description
+        });
+
+        list.append(cardDay);
+    }
+}
+
+function createCardDay (dataDay) {
+    const li = document.createElement('li');
+    const date = document.createElement('h5');
+    const container = document.createElement('div');
+    const img = document.createElement('img');
+    const minMax = document.createElement('div');
+    const min = document.createElement('p');
+    const max = document.createElement('p');
+    const desc = document.createElement('p');
+
+    li.setAttribute('class', 'd-flex align-items-center flex-column mx-2 px-0 py-1 rounded');
+    container.classList.add('d-flex');
+    img.setAttribute('src', dataDay.img);
+    minMax.id = 'minMax';
+    minMax.setAttribute('class', 'px-3 pt-1 mt-3');
+    min.classList.add('fs-6');
+    max.classList.add('fs-6');
+    desc.classList.add('fs-5');
+
+    date.innerHTML = dataDay.dateFormated;
+    min.innerHTML = dataDay.min;
+    max.innerHTML = dataDay.max;
+    max.innerHTML = dataDay.max;
+    desc.innerHTML = dataDay.desc;
+
+    minMax.append(min);
+    minMax.append(max);
+    container.append(img);
+    container.append(minMax);
+    li.append(date);
+    li.append(container);
+    li.append(desc);
+
+    return li;
 }
