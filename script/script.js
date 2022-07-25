@@ -1,3 +1,4 @@
+// selecionando elementos de busca
 const button = document.querySelector("#btn");
 const input = document.querySelector("#search");
 
@@ -10,11 +11,12 @@ input.addEventListener('keypress', (ev) => {
     }
 });
 
-
+// busca a latitude e longitade da cidade informada
 function getCity () {
     const city = input.value
     const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=8f77d0065bcd16d453b9e3093004900c#`;
 
+    // verifica o valor do input
     if (!input.value) {
         input.classList.add('danger');
     } else {
@@ -30,9 +32,11 @@ function getCity () {
     }
 }
 
+// busca o clima de acordo com a lat e lon
 function getClimate(lat, lon) {
     const urlClimate = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&lang=pt_br&appid=8f77d0065bcd16d453b9e3093004900c#`;
 
+    // conta a api
     fetch(urlClimate).then(res => res.json()).then((dataClimate) => {
         console.log(dataClimate);
         climateCurrent(dataClimate);
@@ -44,6 +48,7 @@ function getClimate(lat, lon) {
     });
 }
 
+// atualiza as informacoes do clima atual
 function climateCurrent (data) {
     const date = new Date(data.current.dt*1000);
     const dateFormted = date.toLocaleDateString()
@@ -60,6 +65,7 @@ function climateCurrent (data) {
     document.querySelector('#minCurrent').innerHTML = `${data.daily[0].temp.min.toFixed(1)}&deg;C`;
 }
 
+// atualiza a previsao por hora do local
 function climateHour (dataHourly) {
     const list = document.querySelector('#previousHour');
 
@@ -76,6 +82,7 @@ function climateHour (dataHourly) {
     }
 }
 
+// cria o card po horario
 function createCardHour (content) {
     const card = document.createElement('li');
     const hour = document.createElement('h5');
@@ -97,6 +104,7 @@ function createCardHour (content) {
     return card;
 }
 
+// atualiza as previsoes diarias
 function climateDay (dataDaily) {
     const mouths = ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
     const list = document.querySelector('#previousDaily');
@@ -117,6 +125,7 @@ function climateDay (dataDaily) {
     }
 }
 
+// cria o card com a informacao de cada dia cada dia
 function createCardDay (dataDay) {
     const li = document.createElement('li');
     const date = document.createElement('h5');
