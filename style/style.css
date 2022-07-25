@@ -4,27 +4,10 @@ body {
 
 }
 
-/* h3, #search {
-    border: 1px solid red;
-
-} */
-
 #container{
     background-color: rgba(0, 0, 0, 0.2);
     padding: 0;
     max-width: 900px;
-}
-
-#hourly{
-    min-width: 350px;
-    max-width: 900px;
-    width: 60%;
-    
-}
-
-#previousHour {
-    overflow-x: auto;
-
 }
 
 #search {
@@ -38,6 +21,30 @@ body {
     box-shadow: none;
 }
 
+#btn:focus{
+    box-shadow: none;
+    background-color: #198754;
+}
+
+.danger {
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+ul li {
+    background-color: rgba(255, 255, 255,0.5);
+}
+
+#previousHour {
+    overflow-x: auto;
+}
+
+#hourly{
+    min-width: 350px;
+    max-width: 900px;
+    width: 65%; 
+}
+
 #imgHour {
     height: 70px;
     width: 70px;
@@ -45,11 +52,7 @@ body {
 
 #minMax {
     border-left: 2px solid rgba(0, 0, 0, 0.4);
-    height: 110px;
-}
-
-ul li {
-    background-color: rgba(255, 255, 255,0.5);
+    height: 80px;
 }
 
 #previous {
@@ -64,16 +67,8 @@ ul li {
     overflow-x: auto;
 }
 
-#btn:focus{
-    box-shadow: none;
-    background-color: #198754;
+#today {
+    min-width: 350px;
+    max-width: 900px;
+    width: 89%;
 }
-
-.danger {
-    border: 1px solid #ff0000;
-    color: #ff0000;
-}
-
-/* section, div {
-    border: 1px solid red;
-} */
