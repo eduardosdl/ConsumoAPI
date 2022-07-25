@@ -156,8 +156,8 @@ function createCardDay (dataDay) {
     max.innerHTML = dataDay.max;
     desc.innerHTML = dataDay.desc;
 
-    minMax.append(min);
     minMax.append(max);
+    minMax.append(min);
     container.append(img);
     container.append(minMax);
     li.append(date);
