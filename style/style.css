@@ -1,6 +1,11 @@
+html {
+    height: 100%;
+}
+
 body {
+    border: 1px solid #ff0000;
     background: linear-gradient( rgb(87, 244, 255) 20%, rgba(102,166,240,1) 80%);
-    height: 100vh;
+    height: 100%;
 }
 
 #container{
@@ -28,6 +33,10 @@ body {
 .danger {
     border: 1px solid #ff0000;
     color: #ff0000;
+}
+
+#today {
+    flex-wrap: wrap;
 }
 
 ul li {
