@@ -4,6 +4,8 @@ const input = document.querySelector("#search");
 const listHour = document.querySelector('#previousHour');
 const listDay = document.querySelector('#previousDaily');
 
+// carrega a cidade recife como layout inicial
+window.onload = getCity();
 
 // evento para identificar o click
 button.addEventListener('click', getCity);
