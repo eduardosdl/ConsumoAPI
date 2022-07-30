@@ -1,22 +1,27 @@
-html {
-    height: 100%;
-}
+/* html {
+    height: 100%; 
+} */
 
 body {
-    border: 1px solid #ff0000;
-    background: linear-gradient( rgb(87, 244, 255) 20%, rgba(102,166,240,1) 80%);
-    height: 100%;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    background: rgba(102,166,240,1);
+    width: 100%;
+    overflow-y: inherit;
 }
 
 #container{
     background-color: rgba(0, 0, 0, 0.2);
     padding: 0;
-    max-width: 900px;
+    max-width: 1200px;
+    width: 70%;
+    min-width: 320px;
 }
 
 #search {
     min-width: 200px;
-    max-width: 500px;
+    max-width: 1000px;
     width: 70%;
 }
 
@@ -54,8 +59,13 @@ ul li {
 }
 
 #imgHour {
-    height: 70px;
-    width: 70px;
+    height: 500px;
+    width: 500px;
+}
+
+#previousHour img {
+    height: 80px;
+    width: 80px;
 }
 
 #minMax {
