@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="../style/style.css">
     <title>Consumo API</title>
 </head>
-<body class="pt-2">
+<body class="">
 
     <div id="container" class="container rounded">
-        <section class="d-flex align-items-center justify-content-center py-3">
+        <section id="locale" class="d-flex align-items-center justify-content-center flex-wrap-reverse py-3">
             <h3 id="cityName" class="me-4 my-0 fs-3">Recife, BR</h3>
-            <input id="search" class="form-control mx-2" placeholder="Nome da cidade, ex: Recife" aria-label="Search">
+            <div id="search" class="d-flex">
+            <input class="form-control mx-2" placeholder="Nome da cidade, ex: Recife" aria-label="Search">
             <button id="btn" class="btn btn-success">Buscar</button>
+        </div>
         </section>
         <section id="today" class="d-flex align-items-center justify-content-between text-center mx-5">
             <div id="current" class="d-flex flex-column">
@@ -37,7 +39,7 @@
             <div id="hourly" class="">
                 <p class="fs-5">Próximas horas:</p>
                 <ul id="previousHour" class="d-flex list-unstyled pb-2">
-                    
+                    <li class="mx-2 px-2 rounded d-flex lign-items-center flex-column"><h5 class="fs-5">13:00</h5><img src="../img/10d.png"><h5 class="fs-5">24.0°C</h5></li>
                 </ul>
             </div>
         </section>
@@ -45,7 +47,7 @@
             <div id="daily" class="text-center">
                 <p class="fs-5">Próximos dias:</p>
                 <ul id="previousDaily" class="d-flex list-unstyled pb-2">
-                    
+                    <li class="d-flex align-items-center flex-column mx-2 px-0 py-1 rounded"><h5>30 Jul</h5><div class="d-flex"><img src="../img/10d.png"><div id="minMax" class="px-3 pt-1 mt-3"><p class="fs-6">25.2°C</p><p class="fs-6">23.6°C</p></div></div><p class="fs-5">chuva leve</p></li>
                 </ul>
             </div>
         </section>
