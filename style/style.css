@@ -1,11 +1,4 @@
-/* html {
-    height: 100%; 
-} */
-
 body {
-    display: flex;
-    align-items: center;
-    align-items: center;
     background: rgba(102,166,240,1);
     width: 100%;
     overflow-y: inherit;
@@ -13,14 +6,14 @@ body {
 
 #container{
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 0;
-    max-width: 1200px;
-    width: 70%;
-    min-width: 320px;
 }
 
-#search {
-    min-width: 200px;
+#locale {
+    width: 100%;
+}
+
+#divSearch {
+    min-width: 300px;
     max-width: 1000px;
     width: 70%;
 }
@@ -41,7 +34,10 @@ body {
 }
 
 #today {
-    flex-wrap: wrap;
+    min-width: 300px;
+    max-width: 900px;
+    width: 90%;
+    justify-content: space-between;
 }
 
 ul li {
@@ -53,14 +49,15 @@ ul li {
 }
 
 #hourly{
-    min-width: 350px;
-    max-width: 900px;
-    width: 65%; 
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%; 
 }
 
-#imgHour {
-    height: 500px;
-    width: 500px;
+#previousHour {
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%; 
 }
 
 #previousHour img {
@@ -74,21 +71,17 @@ ul li {
 }
 
 #previous {
-    border-top: 3px solid #ffffff;
-    
+    min-width: 300px;
+    max-width: 900px;
+    width: 90%;
+    border-top: 3px solid #ffffff;   
 }
 
 #previousDaily {
-    min-width: 350px;
+    min-width: 300px;
     max-width: 900px;
     width: 100%;
     overflow-x: auto;
-}
-
-#today {
-    min-width: 350px;
-    max-width: 900px;
-    width: 89%;
 }
 
 ::-webkit-scrollbar {
@@ -104,3 +97,9 @@ ul li {
     background-color: rgb(133, 133, 133);
     border-radius: 20px;
 }
+
+ @media (max-width: 991px) {
+    #today {
+        justify-content: center;
+    }
+ }
