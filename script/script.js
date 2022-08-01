@@ -31,7 +31,7 @@ function getCity () {
     } else {
         input.classList.remove('danger');
         fetch(urlCity).then(res => res.json()).then((dataCity) => {
-            document.querySelector('#cityName').innerHTML = `${dataCity[0].name}, ${dataCity[0].country}`;
+            document.querySelector('#cityName').innerHTML = `${dataCity[0].name}, ${dataCity[0].state}`;
             getClimate(dataCity[0].lat, dataCity[0].lon);
         }).catch((err) => {
             console.log("Houve um erro, tente novamente: "+err);
