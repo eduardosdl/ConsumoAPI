@@ -47,7 +47,6 @@ function getClimate(lat, lon) {
 
     // conta a api
     fetch(urlClimate).then(res => res.json()).then((dataClimate) => {
-        console.log(dataClimate);
         climateCurrent(dataClimate);
         climateHour(dataClimate.hourly);
         climateDay(dataClimate.daily);
@@ -59,8 +58,14 @@ function getClimate(lat, lon) {
 
 // atualiza as informacoes do clima atual
 function climateCurrent (data) {
-    const date = new Date(data.current.dt*1000);
-    const dateFormted = date.toLocaleDateString()
+    // regata a data atual de acordo com a localidade
+    const date = new Date();
+    // returna a o horario padrao sem ser afetado pelo fuso horario
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    // retorna data de acordo com o fuso horario dado pela api
+    date.setMinutes(date.getMinutes() + (data.timezone_offset/60));
+    // formata a data e hora
+    const dateFormted = date.toLocaleDateString();
     const hour = date.toLocaleTimeString().slice(0,5);
 
     document.querySelector('#dateCurrent').innerHTML = dateFormted;
