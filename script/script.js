@@ -67,7 +67,7 @@ function climateCurrent (data) {
     document.querySelector('#hourCurrent').innerHTML = hour;
 
     document.querySelector('#tempCurrent').innerHTML = `${data.current.temp.toFixed(1)}&deg;C`;
-    document.querySelector('#tempCurrent').setAttribute('src',`../img/${data.current.weather[0].icon}.png`);
+    document.querySelector('#tempCurrent').setAttribute('src',`./img/${data.current.weather[0].icon}.png`);
     document.querySelector('#descCurrent').innerHTML = data.current.weather[0].description;
     
     document.querySelector('#maxCurrent').innerHTML = `${data.daily[0].temp.max.toFixed(1)}&deg;C`;
@@ -83,7 +83,7 @@ function climateHour (dataHourly) {
 
         const cardHour = createCardHour({
             hour: date.toLocaleTimeString().slice(0,5),
-            img: `../img/${hour.weather[0].icon}.png`,
+            img: `./img/${hour.weather[0].icon}.png`,
             temp: `${hour.temp.toFixed(1)}&deg;C`,
         });
 
@@ -122,7 +122,7 @@ function climateDay (dataDaily) {
 
         const cardDay = createCardDay({
             dateFormated: `${date.getDate()} ${mouths[date.getMonth()]}`,
-            img: `../img/${day.weather[0].icon}.png`,
+            img: `./img/${day.weather[0].icon}.png`,
             min: `${day.temp.min.toFixed(1)}&deg;C`,
             max: `${day.temp.max.toFixed(1)}&deg;C`,
             desc: day.weather[0].description
